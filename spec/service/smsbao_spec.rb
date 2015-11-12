@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'spec_helper'
+require 'china_sms/service/smsbao'
 
 describe "Smsbao" do
   let(:username) { 'saberma' }

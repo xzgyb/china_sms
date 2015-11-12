@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'spec_helper'
+require 'china_sms/service/emay'
 
 describe "Emay" do
 
