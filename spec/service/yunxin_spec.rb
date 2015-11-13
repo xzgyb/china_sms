@@ -20,24 +20,11 @@ describe 'Yunxin' do
         stub_request(:post, url).
           with(body: {userCode: username, userPass: password, DesNo: phone,
                       Msg: content, Channel: '0'}).
-          to_return(body: '2314357620085030623')
+          to_return(body: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://tempuri.org/\">2314474110556918744</string>")
       end
 
       its([:success]) { is_expected.to be true }
-      its([:code])    { is_expected.to eq '2314357620085030623'}
-    end
-
-    describe 'send single phone failed' do
-      let(:phone) { '13912345678' }
-      before do
-        stub_request(:post, url).
-          with(body: {userCode: username, userPass: password, DesNo: phone,
-                      Msg: content, Channel: '0'}).
-          to_return(body: '-1')
-      end
-
-      its([:success]) { is_expected.to be false }
-      its([:code])    { is_expected.to eq  '-1'}
+      its([:code])    { is_expected.to eq '2314474110556918744'}
     end
 
     describe 'send single phone failed' do
@@ -46,7 +33,7 @@ describe 'Yunxin' do
         stub_request(:post, url).
             with(body: {userCode: username, userPass: password, DesNo: phone,
                         Msg: content, Channel: '0'}).
-            to_return(body: '-1')
+            to_return(body: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://tempuri.org/\">-1</string>")
       end
 
       its([:success]) { is_expected.to be false }

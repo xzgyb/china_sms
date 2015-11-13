@@ -36,9 +36,10 @@ module ChinaSMS::Service
     end
 
     def result(body)
+      code = body.match(/<string.+>(.+)<\/string/)[1]
       {
-        success: (body.to_i >= 0),
-        code: body
+        success: (code.to_i >= 0),
+        code: code
       }
     end
   end
